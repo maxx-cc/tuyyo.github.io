@@ -43,7 +43,6 @@
             text-decoration: underline; /* Subrayado al pasar el mouse */
         }
 
-        /* Estilos para el menú desplegable */
         .dropdown {
             position: relative;
             display: inline-block;
@@ -70,50 +69,43 @@
 
         #carta-texto, #carta-texto-kiara {
             display: none; /* Oculta el texto por defecto */
-            position: relative; /* Cambiado a relative para mejor comportamiento en móviles */
-            margin: 20px auto; /* Centra el texto con margen automático */
+            position: relative; 
+            margin: 20px auto; 
             color: white;
             font-size: 24px;
-            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente negro */
-            padding: 20px; /* Espaciado interno para mejor presentación */
-            border-radius: 10px; /* Bordes redondeados para un mejor aspecto visual */
+            background-color: rgba(0, 0, 0, 0.7); 
+            padding: 20px; 
+            border-radius: 10px; 
         }
 
         #volver-btn, #volver-btn-kiara {
-            display: none; /* Oculta el botón por defecto */
+            display: none; 
             margin-top: 20px;
             padding: 10px 20px;
             font-size: 20px;
             color: white;
-            background-color: rgba(255, 0, 0, 0.7); /* Fondo rojo semi-transparente */
+            background-color: rgba(255, 0, 0, 0.7); 
             border-radius: 5px;
             cursor: pointer;
         }
 
         @media (max-width: 600px) {
             #carta-texto, #carta-texto-kiara {
-                display: block; /* Asegúrate de que se muestre en pantallas pequeñas */
-                font-size: 18px; /* Tamaño de fuente más pequeño */
-                padding: 10px; /* Menos espaciado interno */
-                margin: 20px auto; /* Centrar el texto */
-                width: calc(100% - 40px); /* Ancho responsivo con margen lateral */
-                box-sizing: border-box; /* Incluye padding en el ancho total */
-                text-align: center; /* Centrar texto dentro del contenedor */
-            }
+                font-size: 18px; 
+                padding: 10px; 
+                width: calc(100% - 40px); 
+                box-sizing: border-box; 
+                text-align: center; 
+                display:none; /* Asegúrate de que no se muestre automáticamente en móviles*/
+             }
 
-            .menu a {
-                font-size: 30px; /* Tamaño de letra más pequeño para el menú en móviles */
-                margin-bottom: 5px; 
-                padding-left :10%; 
-                padding-right :10%;
-                box-sizing : border-box;
-                width : calc(100% -20%);
-                
+             .menu a {
+                font-size: 30px; 
              }
 
              #volver-btn, #volver-btn-kiara {
-                font-size: 18px; /* Ajustar tamaño del botón para móviles*/
-                padding: 8px 16px; /* Ajustar espaciado del botón para móviles*/
+                font-size: 18px; 
+                padding: 8px 16px;
              }
          }
     </style>
@@ -125,7 +117,7 @@
         <div class="dropdown">
             <a href="#" onclick="toggleDropdown(event)">Te amo</a>
             <div class="dropdown-content" id="myDropdown">
-                <a href="file:///D:/proyecto%20kiara/recuerdos.html">recuerdos</a>
+                <a href="file:///D:/proyecto%20kiara/Recuerdos.html">Recuerdos</a>
                 <a href="#" onclick="mostrarCarta()">Carta</a>
                 <a href="#" onclick="mostrarCartaKiara()">Carta 2</a> <!-- Nuevo enlace para la carta a Kiara -->
             </div>
@@ -176,7 +168,6 @@
            document.getElementById("volver-btn-kiara").style.display = "none"; // Oculta el botón para Kiara's message
        }
 
-       // Eliminar la funcionalidad de cerrar al hacer clic fuera
        window.onclick = function(event) {
           if (!event.target.matches('.dropdown a') && !event.target.matches('#volver-btn') && !event.target.matches('#volver-btn-kiara')) {
               var dropdowns = document.getElementsByClassName("dropdown-content");
@@ -189,7 +180,5 @@
           }
       };
     </script>
-</body>
-</html>
 </body>
 </html>
