@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu y yo</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background-image: url('https://c.wallhere.com/photos/e9/84/Duki_Antes_de_Ameri-2251146.jpg!d');
+            background-size: cover;
+            background-position: center;
+            color: #000000; /* Color negro */
+            font-family: 'Lucida Sans', sans-serif; /* Fuente Lucida Sans */
+        }
+
+        .header-image {
+            display: block; /* Asegúrate de que se comporta como un elemento de bloque */
+            margin: 100px auto 0; /* Agrega un margen superior de 100px */
+            max-width: 100%; /* Ancho responsivo */
+            height: auto; /* Mantiene la relación de aspecto */
+        }
+
+        .menu {
+            position: absolute;
+            bottom: 150px; /* Ajusta este valor para mover el menú más arriba */
+            left: 50%; /* Centrado horizontalmente */
+            transform: translateX(-50%); /* Ajusta la posición para centrar */
+            text-align: center; /* Asegúrate de que el texto esté centrado */
+        }
+
+        .menu a {
+            display: block; /* Para que los enlaces estén uno debajo del otro */
+            margin-bottom: 10px; /* Espacio entre los enlaces del menú */
+            font-size: 40px; /* Tamaño de letra medianamente grande */
+            font-weight: bold; /* Letra más gruesa */
+            color: white; /* Color blanco */
+            text-decoration: none; /* Sin subrayado */
+        }
+
+        .menu a:hover {
+            text-decoration: underline; /* Subrayado al pasar el mouse */
+        }
+
+        /* Estilos para el menú desplegable */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none; /* Oculta el contenido por defecto */
+            position: absolute;
+            background-color: rgba(255, 255, 255, 0); /* Fondo completamente transparente */
+            min-width: 160px; /* Ancho mínimo del menú desplegable */
+            z-index: 1; /* Asegura que esté por encima de otros elementos */
+        }
+
+        .dropdown-content a {
+            color: white; /* Color del texto en el menú desplegable */
+            padding: 12px 16px; /* Espaciado interno en los enlaces del menú desplegable */
+            text-decoration: none; /* Sin subrayado */
+            display: block; /* Para que los enlaces estén uno debajo del otro en el menú desplegable */
+        }
+
+        .dropdown-content.show {
+            display: block; /* Muestra el contenido al hacer clic en el menú desplegable */
+        }
+
+        #carta-texto, #carta-texto-kiara {
+            display: none; /* Oculta el texto por defecto */
+            position: absolute;
+            bottom: 100px; /* Ajusta la posición según sea necesario */
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 24px;
+            background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente negro */
+            padding: 20px; /* Espaciado interno para mejor presentación */
+            border-radius: 10px; /* Bordes redondeados para un mejor aspecto visual */
+        }
+
+        #volver-btn, #volver-btn-kiara {
+            display: none; /* Oculta el botón por defecto */
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 20px;
+            color: white;
+            background-color: rgba(255, 0, 0, 0.7); /* Fondo rojo semi-transparente */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img src="videos/logo.png" alt="Texto Cool" class="header-image">
+    
+    <div class="menu">
+        <div class="dropdown">
+            <a href="#" onclick="toggleDropdown(event)">Te amo</a>
+            <div class="dropdown-content" id="myDropdown">
+                <a href="file:///D:/proyecto%20kiara/index1.html">Recuerdos</a>
+                <a href="#" onclick="mostrarCarta()">Carta</a>
+                <a href="#" onclick="mostrarCartaKiara()">Carta 2</a> <!-- Nuevo enlace para la carta a Kiara -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Contenedor para el texto de la carta -->
+    <div id="carta-texto">
+        Mi niña, no tienes idea de lo mucho que me gustas. Eres un suceso que me cambió la vida y solo me queda agradecerte por todo lo bueno. Contigo siento ese efecto inexplicable; lo que hiciste en mí no es normal, y me encantas como nunca. Créeme que te valorar é como nunca lo hice. Por ti será mi mejor versión, si tú me lo permites.
+        
+        <button id="volver-btn" onclick="ocultarCarta()">Volver Atrás</button>
+    </div>
+
+    <!-- Contenedor para el texto de la carta a Kiara -->
+    <div id="carta-texto-kiara">
+        Kiara, sabes lo que siento por ti no se acaba y ojalá siga así por siempre. Te amo, no sé cómo expresar mis sentimientos pero SOLO POR VOS daré más de mi 100%. COMO YO TE QUIERO no tiene sentido, quizás sea por ese EFECTO que tanto me haces sentir. Cuando nos separamos me preguntó DÓNDE ESTÁS no supe saber lo que tenía contigo, lo mucho que me haces falta para mi felicidad. Tú eres la chica que alegra mis días y quiero que siga siendo así.
+        
+        <button id="volver-btn-kiara" onclick="ocultarCartaKiara()">Volver Atrás</button>
+    </div>
+
+    <script>
+        function toggleDropdown(event) {
+            event.preventDefault(); // Previene el comportamiento por defecto del enlace
+            document.getElementById("myDropdown").classList.toggle("show"); // Alterna la clase "show"
+        }
+
+        function mostrarCarta() {
+            document.getElementById("carta-texto").style.display = "block"; // Muestra el texto de la carta
+            document.getElementById("volver-btn").style.display = "block"; // Muestra el botón "Volver Atrás"
+            
+            ocultarCartaKiara(); // Oculta la carta a Kiara si está visible
+        }
+
+        function ocultarCarta() {
+            document.getElementById("carta-texto").style.display = "none"; // Oculta el texto de la carta
+            document.getElementById("volver-btn").style.display = "none"; // Oculta el botón "Volver Atrás"
+        }
+
+        function mostrarCartaKiara() {
+            document.getElementById("carta-texto-kiara").style.display = "block"; // Muestra Kiara's message
+            document.getElementById("volver-btn-kiara").style.display = "block"; // Muestra el botón para Kiara's message
+            
+            ocultarCarta(); // Oculta la primera carta si está visible
+        }
+
+        function ocultarCartaKiara() {
+           document.getElementById("carta-texto-kiara").style.display = "none"; // Oculta el texto de la carta a Kiara
+           document.getElementById("volver-btn-kiara").style.display = "none"; // Oculta el botón para Kiara's message
+       }
+
+       // Eliminar la funcionalidad de cerrar al hacer clic fuera
+       window.onclick = function(event) {
+          if (!event.target.matches('.dropdown a') && !event.target.matches('#volver-btn') && !event.target.matches('#volver-btn-kiara')) {
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+              for (var i = 0; i < dropdowns.length; i++) {
+                  var openDropdown = dropdowns[i];
+                  if (openDropdown.classList.contains('show')) {
+                      openDropdown.classList.remove('show');
+                  }
+              }
+          }
+      };
+    </script>
+</body>
+</html>
